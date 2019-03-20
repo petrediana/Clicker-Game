@@ -1,6 +1,6 @@
 # Clicks n Clicks
-Clicker game that I created using C# Windowns Application Forms. The game is pretty easy to understand, just click like a mad man on the buttons to increase your score.
-Will definitely add more features to it and do my best to improve my mini game.
+Clicker game that I created using C# Windows Application Forms. The game is pretty easy to understand, just click like a mad man on the buttons to increase your score.
+I Will definitely add more features to it and do my best to improve my mini game.
 
 
 Have a peak on how it looks so far:\
