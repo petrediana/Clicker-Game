@@ -2,8 +2,8 @@
 *Welcome to my tiny clicker game. The rules are very simple,
                 just click on the buttons to gain points. Different buttons give you different points.
                 In order to get acces to higher click scores you will first need to purchase the upgrade.
-                Purchasing an upgrade is simple! Just click on the 'Purchase?' text" 
-                that you see on the left side." 
+                Purchasing an upgrade is simple! Just click on the 'Purchase?' text
+                that you see on the left side. 
                 You can also unlock auto-generated points. Basically you get clicks without"
                  actually clicking. Sounds cool, right? You get those by matching your
                  mouse pointer with the '++' button
