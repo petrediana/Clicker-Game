@@ -3,5 +3,9 @@ Clicker game that I created using C# Windows Application Forms. The game is pret
 I Will definitely add more features to it and do my best to improve my mini game.
 
 
-Have a peak on how it looks so far:\
+Have a peak on how it looks so far:\ The Main Menu: 
 ![a](https://user-images.githubusercontent.com/16005672/56523001-a4031d00-654f-11e9-820a-f270d017a623.JPG)
+
+\The game part: 
+![b](https://user-images.githubusercontent.com/16005672/56523086-b8dfb080-654f-11e9-864a-8fa1b6914b17.JPG)
+
