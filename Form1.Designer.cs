@@ -50,6 +50,18 @@
             this.button4 = new System.Windows.Forms.Button();
             this.clicks_label = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label12 = new System.Windows.Forms.Label();
+            this.show_clicks_label = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.cheatsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.moveText_label = new System.Windows.Forms.Label();
+            this.movingText_Timer = new System.Windows.Forms.Timer(this.components);
+            this.changeText_timer = new System.Windows.Forms.Timer(this.components);
+            this.enterACheatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveCurrentProgressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetYourGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_1_point
@@ -68,7 +80,8 @@
             // 
             // score_textBox
             // 
-            this.score_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.score_textBox.BackColor = System.Drawing.Color.White;
+            this.score_textBox.Enabled = false;
             this.score_textBox.ForeColor = System.Drawing.Color.White;
             this.score_textBox.Location = new System.Drawing.Point(110, 82);
             this.score_textBox.Margin = new System.Windows.Forms.Padding(4);
@@ -277,6 +290,97 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label12.Location = new System.Drawing.Point(298, 82);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(92, 24);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "CLICKS: ";
+            // 
+            // show_clicks_label
+            // 
+            this.show_clicks_label.AutoSize = true;
+            this.show_clicks_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.show_clicks_label.Location = new System.Drawing.Point(396, 82);
+            this.show_clicks_label.Name = "show_clicks_label";
+            this.show_clicks_label.Size = new System.Drawing.Size(21, 24);
+            this.show_clicks_label.TabIndex = 20;
+            this.show_clicks_label.Text = "0";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cheatsToolStripMenuItem,
+            this.saveCurrentProgressToolStripMenuItem,
+            this.resetYourGameToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(462, 24);
+            this.menuStrip1.TabIndex = 21;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // cheatsToolStripMenuItem
+            // 
+            this.cheatsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBox1,
+            this.enterACheatToolStripMenuItem});
+            this.cheatsToolStripMenuItem.Name = "cheatsToolStripMenuItem";
+            this.cheatsToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.cheatsToolStripMenuItem.Text = "Cheats";
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.enter_cheat);
+            // 
+            // moveText_label
+            // 
+            this.moveText_label.AutoSize = true;
+            this.moveText_label.BackColor = System.Drawing.Color.Transparent;
+            this.moveText_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.moveText_label.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.moveText_label.Location = new System.Drawing.Point(9, 35);
+            this.moveText_label.Name = "moveText_label";
+            this.moveText_label.Size = new System.Drawing.Size(103, 24);
+            this.moveText_label.TabIndex = 22;
+            this.moveText_label.Text = "Go Go Go";
+            // 
+            // movingText_Timer
+            // 
+            this.movingText_Timer.Enabled = true;
+            this.movingText_Timer.Interval = 5;
+            this.movingText_Timer.Tick += new System.EventHandler(this.movingText_Timer_Tick);
+            // 
+            // changeText_timer
+            // 
+            this.changeText_timer.Enabled = true;
+            this.changeText_timer.Interval = 7000;
+            this.changeText_timer.Tick += new System.EventHandler(this.changeText_timer_Tick);
+            // 
+            // enterACheatToolStripMenuItem
+            // 
+            this.enterACheatToolStripMenuItem.Name = "enterACheatToolStripMenuItem";
+            this.enterACheatToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.enterACheatToolStripMenuItem.Text = "Enter a cheat";
+            // 
+            // saveCurrentProgressToolStripMenuItem
+            // 
+            this.saveCurrentProgressToolStripMenuItem.Name = "saveCurrentProgressToolStripMenuItem";
+            this.saveCurrentProgressToolStripMenuItem.Size = new System.Drawing.Size(132, 20);
+            this.saveCurrentProgressToolStripMenuItem.Text = "Save current progress";
+            // 
+            // resetYourGameToolStripMenuItem
+            // 
+            this.resetYourGameToolStripMenuItem.Name = "resetYourGameToolStripMenuItem";
+            this.resetYourGameToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
+            this.resetYourGameToolStripMenuItem.Text = "Reset your game";
+            this.resetYourGameToolStripMenuItem.Click += new System.EventHandler(this.resetYourGameToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -284,6 +388,9 @@
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(462, 464);
+            this.Controls.Add(this.moveText_label);
+            this.Controls.Add(this.show_clicks_label);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.clicks_label);
             this.Controls.Add(this.label11);
@@ -303,12 +410,16 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.score_textBox);
             this.Controls.Add(this.btn_1_point);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Clicks n clicks";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,6 +447,17 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label clicks_label;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label show_clicks_label;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem cheatsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.Label moveText_label;
+        private System.Windows.Forms.Timer movingText_Timer;
+        private System.Windows.Forms.Timer changeText_timer;
+        private System.Windows.Forms.ToolStripMenuItem enterACheatToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveCurrentProgressToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resetYourGameToolStripMenuItem;
     }
 }
 

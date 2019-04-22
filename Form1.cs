@@ -12,29 +12,27 @@ namespace Clicker_Game
 {
     public partial class Form1 : Form
     {
-        int curr_score = 5000;
+        int curr_score = 0;
         bool ok_3_score = false;
         bool ok_10_score = false;
         bool ok_50_score = false;
         bool ok_100_score = false;
 
         int nr_clicks_sec = 0;
+        int total_clicks = 0;
 
         public Form1()
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void btn_1_point_Click(object sender, EventArgs e)
         {
             curr_score = int.Parse(score_textBox.Text);
             curr_score++;
             score_textBox.Text = curr_score.ToString();
+            total_clicks++;
+            show_clicks_label.Text = total_clicks.ToString();
         }
 
         // 10 points button
@@ -45,6 +43,8 @@ namespace Clicker_Game
                 curr_score = int.Parse(score_textBox.Text);
                 curr_score += 10;
                 score_textBox.Text = curr_score.ToString();
+                total_clicks++;
+                show_clicks_label.Text = total_clicks.ToString();
             }
             else
             {
@@ -101,6 +101,8 @@ namespace Clicker_Game
                 curr_score = int.Parse(score_textBox.Text);
                 curr_score += 50;
                 score_textBox.Text = curr_score.ToString();
+                total_clicks++;
+                show_clicks_label.Text = total_clicks.ToString();
             }
             else
             {
@@ -121,6 +123,8 @@ namespace Clicker_Game
                 curr_score = int.Parse(score_textBox.Text);
                 curr_score += 3;
                 score_textBox.Text = curr_score.ToString();
+                total_clicks++;
+                show_clicks_label.Text = total_clicks.ToString();
             }
             else
             {
@@ -156,6 +160,8 @@ namespace Clicker_Game
                 curr_score = int.Parse(score_textBox.Text);
                 curr_score += 100;
                 score_textBox.Text = curr_score.ToString();
+                total_clicks++;
+                show_clicks_label.Text = total_clicks.ToString();
             }
             else
             {
@@ -190,9 +196,8 @@ namespace Clicker_Game
             {
                 nr_clicks_sec++;
                 clicks_label.Text = nr_clicks_sec.ToString() + " :)";
-                MessageBox.Show(string.Format("You bought a click!"));
-
                 curr_score -= 250; //getting back the points
+                MessageBox.Show(string.Format("You bought a click!"));
 
             }
             else
@@ -206,6 +211,79 @@ namespace Clicker_Game
         {
             curr_score += nr_clicks_sec;
             score_textBox.Text = curr_score.ToString();
+        }
+
+        //cheat text, something happens if you enter the right cheat
+        //press enter to work
+        private void enter_cheat(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                string cheatText = toolStripTextBox1.Text;
+                if (cheatText == "Please 5000")
+                {
+                    curr_score = 5000;
+                    toolStripTextBox1.Text = "";
+                }
+
+            }
+        }
+
+        //this timer is for creating a small text animation
+        //I just want to move the text from the right side to the left side and have different texts
+        private void movingText_Timer_Tick(object sender, EventArgs e)
+        {          
+
+                if (moveText_label.Left < Width)
+                {
+                    moveText_label.Left = moveText_label.Left + 1;
+                }
+                else
+                {
+                    moveText_label.Left = -550;
+                }
+            
+        }
+
+        //randomly change the flowing text
+        private void changeText_timer_Tick(object sender, EventArgs e)
+        {
+            string[] TextsToShow = new string[5];
+            TextsToShow[0] = "Click like a mad man";
+            TextsToShow[1] = "Faster faster faster";
+            TextsToShow[2] = "Don't stop clicking mate";
+            TextsToShow[3] = "Your mouse might be on fire";
+            TextsToShow[4] = "Be a proud clicker";
+
+            Random random_text = new Random();
+            int no = random_text.Next(5);
+
+            moveText_label.Text = TextsToShow[no];
+        }
+
+        //reset user points, clicks - everything
+        private void resetYourGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Are you REALLY sure that you want to reset everything?",
+                    "RESET STATS", MessageBoxButtons.YesNo);
+
+            if (dialog == DialogResult.Yes)
+            {
+                curr_score = 0;
+                ok_3_score = false;
+                ok_10_score = false;
+                ok_50_score = false;
+                ok_100_score = false;
+                nr_clicks_sec = 0;
+                total_clicks = 0;
+                show_clicks_label.Text = "0";
+                clicks_label.Text = "0 :(";
+                MessageBox.Show(string.Format("Reset complete!"));
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Keep on clicking then"));
+            }
         }
     }
 }
